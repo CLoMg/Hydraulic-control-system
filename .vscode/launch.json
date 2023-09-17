@@ -1,0 +1,53 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        // {
+        //     "name": "Cortex Debug",
+        //     "cwd": "${workspaceFolder}",
+        //     "executable": "./build/${workspaceRootFolderName}.elf",
+        //     "request": "launch",
+        //     "type": "cortex-debug",
+        //     "runToEntryPoint": "main",
+        //     "servertype": "openocd",
+        //     "configFiles": [
+        //         "./config/stlink.cfg",
+        //         "./config/stm32f1x.cfg"
+        //     ],
+        //     "svdFile": "./config/STM32F103xx.svd"
+        // },
+        {
+            "showDevDebugOutput": "parsed",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/Hydraulic_control_system.elf",
+            "name": "Debug STM32",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "preLaunchTask": "Build STM",
+            "device": "stm32f103xe.s",
+            "configFiles": [
+                "openocd.cfg"
+            ],
+            "svdFile": "STM32F103xx.svd"
+        },
+        {
+            "showDevDebugOutput": "parsed",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/Hydraulic_control_system.elf",
+            "name": "Attach STM32",
+            "request": "attach",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "preLaunchTask": "Build STM",
+            "device": "stm32f103xe.s",
+            "configFiles": [
+                "openocd.cfg"
+            ],
+            "svdFile": "STM32F103xx.svd"
+        }
+    ]
+}
